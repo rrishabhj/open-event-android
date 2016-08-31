@@ -11,19 +11,21 @@ public abstract class Urls {
     public static final String API_VERSION = "v1";
 
     /**
-     * Change Event Id Here *
+     * Change EVENT Id Here *
      */
     public static final int EVENT_ID = 1;
 
     public static final String WEB_APP_URL_BASIC = "http://fossasia.github.io/open-event-webapp/#/";
 
-    public static final String EVENTS = "event";
+    public static final String EVENT = "event";
 
     public static final String SPEAKERS = "speakers";
 
     public static final String TRACKS = "tracks";
 
     public static final String SESSIONS = "sessions";
+
+    public static final String SPONSORS = "sponsors";
 
     public static final String BOOKMARKS = "bookmarks";
 
@@ -48,8 +50,11 @@ public abstract class Urls {
 
     public static void setBaseUrl(String baseUrl) {
         if (URLUtil.isValidUrl(baseUrl)) {
-            BASE_URL = baseUrl;
-
+            if (!baseUrl.endsWith("/")) {
+                BASE_URL = baseUrl + "/";
+            } else {
+                BASE_URL = baseUrl;
+            }
         } else {
             BASE_URL = "http://abc//";
 
